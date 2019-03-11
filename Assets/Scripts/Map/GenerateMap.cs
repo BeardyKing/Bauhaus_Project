@@ -29,7 +29,7 @@ public class GenerateMap : MonoBehaviour
 				mapRef = StaticData.Map;
 				CreateMap();
 
-				StaticData.GameRunning = true;
+				//StaticData.GameRunning = true; TODO WAITING FOR IMPLEMENTATION 
 				StaticData.GameObjectList = blocks2D;
 			}
 		}

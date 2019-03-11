@@ -17,7 +17,7 @@ public class ReadTextFile : MonoBehaviour
 
 	void Awake()
     {
-		StaticData.MapPath = path;
+		//StaticData.MapPath = path;
 		//CreateTextFile();
 		//ContentsTextFile();
 		//EndTextFile();

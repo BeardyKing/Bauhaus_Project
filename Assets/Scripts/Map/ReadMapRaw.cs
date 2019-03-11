@@ -11,7 +11,7 @@ public class ReadMapRaw : MonoBehaviour{
 
 	public int[,] map;
 
-	string path = @"Assets / map.txt";
+	//static readonly string path  = @"Assets / map.txt";
 
 	public int x;
 	public int y;
@@ -63,8 +63,21 @@ public class ReadMapRaw : MonoBehaviour{
 				temp = (int)Char.GetNumericValue(item);
 				map[y2, i2] = temp;
 				if (temp == 4) {
+					//StaticData.PlayerPos = new Vector2Int(y2, i2);
+					//StaticData.PlayerPos = new Vector2Int(i2, y2);
+
 					StaticData.PlayerPos[0] = y2;
 					StaticData.PlayerPos[1] = i2;
+				}
+				if (temp == 2) {
+					StaticData.EnemyOnePos[0] = y2;
+					StaticData.EnemyOnePos[1] = i2;
+					//Debug.Log(y2 + " , " + i2);
+				}
+				if (temp == 3) {
+					StaticData.EnemyTwoPos[0] = y2;
+					StaticData.EnemyTwoPos[1] = i2;
+					//Debug.Log(y2 + " , " + i2);
 				}
 				i2++;
 			}
