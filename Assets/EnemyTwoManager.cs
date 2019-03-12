@@ -282,7 +282,7 @@ public class EnemyTwoManager : MonoBehaviour {
 			centroid = centroid / 4;
 			GameObject centroidObj = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 			centroidObj.transform.position = new Vector3(centroid.x, -centroid.y, -1);
-			centroidObj.name = "CENTROID FROM ENEMY ONE";
+			centroidObj.name = "CENTROID FROM ENEMY TWO";
 
 			for (int i = 0; i < 4; i++) {
 				if (pos[i].y > centroid.y) {
@@ -326,6 +326,7 @@ public class EnemyTwoManager : MonoBehaviour {
 										for (int c = 0; c < 4; c++) {
 											StaticData.GameObjectList[(int)pos[c].x, (int)pos[c].y].GetComponent<ChangeColour>().startCol = colOfObj[c];
 										}
+										Destroy(centroidObj);
 										return false;
 									}
 								}

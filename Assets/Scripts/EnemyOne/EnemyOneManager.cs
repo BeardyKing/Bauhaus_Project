@@ -326,6 +326,7 @@ public class EnemyOneManager : MonoBehaviour {
 										for (int c = 0; c < 4; c++) {
 											StaticData.GameObjectList[(int)pos[c].x, (int)pos[c].y].GetComponent<ChangeColour>().startCol = colOfObj[c];
 										}
+										Destroy(centroidObj);
 										return false;
 									}
 								}
