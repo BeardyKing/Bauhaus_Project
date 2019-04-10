@@ -1,0 +1,30 @@
+﻿<Properties StartupConfiguration="{145D323C-F530-0AD1-C3B6-651AA7BD909B}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/EnemyOne/EnemyOneController.cs">
+    <Files>
+      <File FileName="Assets/Scripts/EnemyOne/EnemyOneController.cs" Line="106" Column="26" />
+      <File FileName="Assets/map.txt" Line="22" Column="25" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Bauhaus_Project" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="EnemyOne" expanded="True">
+                  <Node name="EnemyOneController.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

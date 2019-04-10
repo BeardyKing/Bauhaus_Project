@@ -293,12 +293,13 @@ MonoBehaviour:
   up: 0
   down: 0
   hasBuffer: 0
-  MaxLength: 16
+  MaxLength: 8
   startMaxLen: 16
   startSpeed: 15
   timeBettweenChange: 1
   minTimeBetweenChange: 5
   checkedOnce: 0
+  hasCapturedSquare: 0
 --- !u!114 &1983456492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,7 +350,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f214dc90e33ab4b249109c958f39bb6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bufferTimer: 0.295
+  bufferTimer: 0.03
+  possibleCapturePositions:
+  - {x: 22, y: 3}
+  - {x: 17, y: 25}
+  - {x: 8, y: 8}
+  - {x: 4, y: 16}
+  - {x: 33, y: 19}
+  possibleGoToPositions:
+  - {x: 32, y: 23}
+  - {x: 2, y: 20}
+  - {x: 30, y: 7}
+  - {x: 2, y: 2}
+  randomlySelectedPoint: {x: 19, y: 22}
+  CapturePos: {x: 36, y: 7}
+  state: rnd
+  state_timer: 3
+  lengthCap: 45
+  goingToCrash: 0
+  canMoveDown: 0
+  canMoveUp: 0
+  canMoveLeft: 0
+  canMoveRight: 0
 --- !u!114 &1983456495
 MonoBehaviour:
   m_ObjectHideFlags: 0

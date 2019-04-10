@@ -22,6 +22,12 @@ public class EnemyOneManager : MonoBehaviour {
 
 	readonly int[] dir = new int[2];
 
+	public int[] PlayerDir {
+		get {
+			return dir;
+		}
+	}
+
 	[HideInInspector]
 	public int[] 	pPos;
 
@@ -220,6 +226,8 @@ public class EnemyOneManager : MonoBehaviour {
 		checkedOnce = false;
 	}
 
+	public bool hasCapturedSquare;
+
 	void CollidedWithSelf() {
 		if (checkedOnce == false) {
 			checkedOnce = true;
@@ -233,7 +241,9 @@ public class EnemyOneManager : MonoBehaviour {
 
 				if (tempCheck == false) {
 					CheckIfSquare();
+
 				}
+				hasCapturedSquare = tempCheck;
 			}
 		}
 

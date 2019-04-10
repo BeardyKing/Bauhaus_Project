@@ -7,7 +7,7 @@ public class EnemyTwoController : MonoBehaviour {
 	EnemyTwoManager enemyManager;
 	Vector2 input;
 
-	[Range(.1f, Mathf.Infinity)]
+	[Range(.001f, 1f)]
 	public float bufferTimer;
 
 	void Start() {
@@ -22,6 +22,6 @@ public class EnemyTwoController : MonoBehaviour {
 			Input.GetAxis("Vertical")
 			).normalized;
 
-		enemyManager.PushInput(input, bufferTimer);
+		//enemyManager.PushInput(input, bufferTimer);
 	}
 }
