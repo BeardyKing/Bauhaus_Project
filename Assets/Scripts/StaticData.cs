@@ -10,6 +10,8 @@ public static class StaticData {
 	private static int[,] map;
 	private static int[] enemyOnePos = { 0, 0 };
 	private static int[] enemyTwoPos = { 0, 0 };
+	private static bool gameRunning = true;
+	private static int winningColour = 0; // 0 no win | 1 = r | 2 = b | 3 = y
 
 
 	#region waiting for implimentation
@@ -40,6 +42,24 @@ public static class StaticData {
 		}
 		set {
 			gameObjectList = value;
+		}
+	}
+
+	public static bool GameRunning {
+		set {
+			gameRunning = value;
+		}
+		get {
+			return gameRunning;
+		}
+	}
+
+	public static int WinningColour {
+		set {
+			winningColour = value;
+		}
+		get {
+			return winningColour;
 		}
 	}
 

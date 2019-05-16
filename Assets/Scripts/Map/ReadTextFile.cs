@@ -9,7 +9,8 @@ public class ReadTextFile : MonoBehaviour
 {
 	//[SerializeField]
 	//public TextAsset Text;
-	string path = @"Assets/map.txt";
+	//string path = @"Assets/map.txt";
+	string path;
 	int arrSizeX = 40;
 	int arrSizeY = 30;
 	string appendText = "";
@@ -17,6 +18,13 @@ public class ReadTextFile : MonoBehaviour
 
 	void Awake()
     {
+		if (Application.isEditor == true) {
+			path = Application.dataPath + @"/map.txt";
+		} else {
+			path = Application.persistentDataPath + @"/map.txt";
+
+		}
+
 		//StaticData.MapPath = path;
 		//CreateTextFile();
 		//ContentsTextFile();

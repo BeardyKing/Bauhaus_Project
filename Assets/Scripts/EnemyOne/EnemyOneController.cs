@@ -36,15 +36,23 @@ public class EnemyOneController : MonoBehaviour
 		enemyManager = GetComponent<EnemyOneManager>();
 	}
 
-	void Update() {
-		MovementExceptions();
-		StateController();
-		CheckWhenAtIntersection();
-		MakeIntersectionInput();
+	int frameStartBuffer = 10;
 
-		enemyManager.PushInput(input, bufferTimer);
-		if (Input.GetKeyDown(KeyCode.P)) {
-			state = "capture";
+
+	void Update() {
+		if (frameStartBuffer > 0) {
+			frameStartBuffer--;
+		} else {
+			MovementFallback();
+			MovementExceptions();
+			StateController();
+			CheckWhenAtIntersection();
+			MakeIntersectionInput();
+
+			enemyManager.PushInput(input, bufferTimer);
+			if (Input.GetKeyDown(KeyCode.P)) {
+				state = "capture";
+			}
 		}
 	}
 	[SerializeField]
@@ -54,6 +62,21 @@ public class EnemyOneController : MonoBehaviour
 	float state_goto_maxTimer = 10;
 	float state_capture_maxTimer = 10;
 
+	float stuckCounter = 0.3f;
+
+	void MovementFallback() {
+		//stuckCounter -= Time.deltaTime;
+		//if (posDirInputWasMade == enemyManager.PlayerPosition) {
+		//	if (stuckCounter <= 0) {
+		//		RandomMovement();
+		//		Debug.Log("AAA STUCK");
+
+		//	}
+		//} else if (posDirInputWasMade != enemyManager.PlayerPosition) {
+		//	stuckCounter = .3f;
+		//}
+
+	}
 
 	void MovementExceptions() {
 		if (enemyManager.PlayerPosition == new Vector2Int(1,1)) {

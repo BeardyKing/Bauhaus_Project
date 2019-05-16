@@ -22,6 +22,12 @@ public class EnemyTwoManager : MonoBehaviour {
 
 	readonly int[] dir = new int[2];
 
+	public int[] PlayerDir {
+		get {
+			return dir;
+		}
+	}
+
 	[HideInInspector]
 	public int[] pPos;
 
@@ -90,16 +96,18 @@ public class EnemyTwoManager : MonoBehaviour {
 	}
 
 	void Update() {
-		PopulateArrays();
+		if (StaticData.GameRunning == true) {
+			PopulateArrays();
 
-		allPositions.Capacity = length;
+			allPositions.Capacity = length;
 
-		if (running == true) {
-			if (hasBuffer == true) {
-				BufferedInput(left, right, up, down);
+			if (running == true) {
+				if (hasBuffer == true) {
+					BufferedInput(left, right, up, down);
+				}
+				SetNewPosition();
+				PlayerPosition = new Vector2Int(x, y);
 			}
-			SetNewPosition();
-			PlayerPosition = new Vector2Int(x, y);
 		}
 	}
 
@@ -220,6 +228,8 @@ public class EnemyTwoManager : MonoBehaviour {
 		checkedOnce = false;
 	}
 
+	public bool hasCapturedSquare;
+
 	void CollidedWithSelf() {
 		if (checkedOnce == false) {
 			checkedOnce = true;
@@ -234,6 +244,7 @@ public class EnemyTwoManager : MonoBehaviour {
 				if (tempCheck == false) {
 					CheckIfSquare();
 				}
+				hasCapturedSquare = tempCheck;
 			}
 		}
 

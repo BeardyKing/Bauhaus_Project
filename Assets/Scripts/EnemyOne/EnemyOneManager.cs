@@ -96,16 +96,18 @@ public class EnemyOneManager : MonoBehaviour {
 	}
 
 	void Update() {
-		PopulateArrays();
+		if (StaticData.GameRunning == true) {
+			PopulateArrays();
 
-		allPositions.Capacity = length;
+			allPositions.Capacity = length;
 
-		if (running == true) {
-			if (hasBuffer == true) {
-				BufferedInput(left, right, up, down);
+			if (running == true) {
+				if (hasBuffer == true) {
+					BufferedInput(left, right, up, down);
+				}
+				SetNewPosition();
+				PlayerPosition = new Vector2Int(x, y);
 			}
-			SetNewPosition();
-			PlayerPosition = new Vector2Int(x, y);
 		}
 	}
 
