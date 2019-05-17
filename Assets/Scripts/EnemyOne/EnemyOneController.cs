@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyOneController : MonoBehaviour
-{
+public class EnemyOneController : MonoBehaviour {
 	// ENEMY COLOUR = RED (2)
 	EnemyOneManager enemyManager;
 	Vector2 input;
@@ -19,11 +18,11 @@ public class EnemyOneController : MonoBehaviour
 	public Vector2Int CapturePos;
 
 
-	Vector2Int dir 	= Vector2Int.zero;
-	Vector2Int u 		= Vector2Int.up;
-	Vector2Int d 		= Vector2Int.down;
-	Vector2Int l 		= Vector2Int.left;
-	Vector2Int r 		= Vector2Int.right;
+	Vector2Int dir = Vector2Int.zero;
+	Vector2Int u = Vector2Int.up;
+	Vector2Int d = Vector2Int.down;
+	Vector2Int l = Vector2Int.left;
+	Vector2Int r = Vector2Int.right;
 
 	Vector2Int posDirInputWasMade;
 
@@ -36,8 +35,7 @@ public class EnemyOneController : MonoBehaviour
 		enemyManager = GetComponent<EnemyOneManager>();
 	}
 
-	int frameStartBuffer = 10;
-
+	int frameStartBuffer = 13;
 
 	void Update() {
 		if (frameStartBuffer > 0) {
@@ -65,21 +63,20 @@ public class EnemyOneController : MonoBehaviour
 	float stuckCounter = 0.3f;
 
 	void MovementFallback() {
-		//stuckCounter -= Time.deltaTime;
-		//if (posDirInputWasMade == enemyManager.PlayerPosition) {
-		//	if (stuckCounter <= 0) {
-		//		RandomMovement();
-		//		Debug.Log("AAA STUCK");
-
-		//	}
-		//} else if (posDirInputWasMade != enemyManager.PlayerPosition) {
-		//	stuckCounter = .3f;
-		//}
+		stuckCounter -= Time.deltaTime;
+		if (posDirInputWasMade == enemyManager.PlayerPosition) {
+			if (stuckCounter <= 0) {
+				RandomMovement();
+				//debug.Log("AAA STUCK");
+			}
+		} else if (posDirInputWasMade != enemyManager.PlayerPosition) {
+			stuckCounter = .7f;
+		}
 
 	}
 
 	void MovementExceptions() {
-		if (enemyManager.PlayerPosition == new Vector2Int(1,1)) {
+		if (enemyManager.PlayerPosition == new Vector2Int(1, 1)) {
 			if (eom_dir == u) {
 				if (posDirInputWasMade != enemyManager.PlayerPosition) {
 					SetDirAndOnePass(r);
@@ -142,20 +139,20 @@ public class EnemyOneController : MonoBehaviour
 					case 0:
 						state = "rnd";
 						state_timer = state_rnd_maxTimer;
-						Debug.Log(state);
+						//debug.Log(state);
 						break;
 					case 1:
 						state = "goto";
 						state_timer = state_goto_maxTimer;
 						randomlySelectedPoint = possibleGoToPositions[(int)Random.Range(0, possibleGoToPositions.Length)];
-						Debug.Log(state);
+						//debug.Log(state);
 
 						break;
 					case 2:
 						state = "capture";
 						state_timer = state_capture_maxTimer;
 						CapturePos = possibleCapturePositions[(int)Random.Range(0, possibleCapturePositions.Length)];
-						Debug.Log(state);
+						//debug.Log(state);
 
 						break;
 					default:
@@ -173,9 +170,9 @@ public class EnemyOneController : MonoBehaviour
 		} else if (state == "capture") {
 			if (enemyManager.hasCapturedSquare) {
 				enemyManager.hasCapturedSquare = false;
-				Debug.Log("---------------------");
-				Debug.Log("HAS CAPTURED A SQUARE");
-				Debug.Log("---------------------");
+				//debug.Log("---------------------");
+				//debug.Log("HAS CAPTURED A SQUARE");
+				//debug.Log("---------------------");
 
 				Capture_ChangeState();
 			}
@@ -192,13 +189,13 @@ public class EnemyOneController : MonoBehaviour
 			case 0:
 				state = "rnd";
 				state_timer = state_rnd_maxTimer;
-				Debug.Log(state);
+				//debug.Log(state);
 				break;
 			case 1:
 				state = "capture";
 				state_timer = state_capture_maxTimer;
 				CapturePos = possibleCapturePositions[(int)Random.Range(0, possibleCapturePositions.Length)];
-				Debug.Log(state);
+				//debug.Log(state);
 
 				break;
 			default:
@@ -209,11 +206,9 @@ public class EnemyOneController : MonoBehaviour
 	void MakeIntersectionInput() {
 		if (state == "rnd") {
 			RandomMovement();
-		}
-		else if (state == "goto") {
+		} else if (state == "goto") {
 			GoToPosition();
-		}
-		else if (state == "capture") {
+		} else if (state == "capture") {
 			Capture();
 		}
 	}
@@ -301,7 +296,7 @@ public class EnemyOneController : MonoBehaviour
 	bool madeCorrectChoice = false;
 
 	void RandomMovement() {
-		Debug.Log(Time.deltaTime);
+		//debug.Log(Time.deltaTime);
 		if (atIntersection == true) {
 			if (posDirInputWasMade != enemyManager.PlayerPosition) {
 				madeCorrectChoice = false;
@@ -381,7 +376,7 @@ public class EnemyOneController : MonoBehaviour
 
 
 	[SerializeField]
-	bool canMoveDown,canMoveUp,canMoveLeft,canMoveRight;
+	bool canMoveDown, canMoveUp, canMoveLeft, canMoveRight;
 	bool atIntersection;
 	int amountOfIntersections;
 
@@ -391,19 +386,19 @@ public class EnemyOneController : MonoBehaviour
 
 		if (eom_dir == Vector2Int.up) {
 			ResetDirectionValues();
-			if (	StaticData.GameObjectList[enemyManager.PlayerPosition.x, enemyManager.PlayerPosition.y - 1].GetComponent<ChangeColour>().startCol == 1 ||
+			if (StaticData.GameObjectList[enemyManager.PlayerPosition.x, enemyManager.PlayerPosition.y - 1].GetComponent<ChangeColour>().startCol == 1 ||
 				 	StaticData.GameObjectList[enemyManager.PlayerPosition.x, enemyManager.PlayerPosition.y - 1].GetComponent<ChangeColour>().startCol == 2) {
 				amountOfIntersections++;
 				canMoveUp = true;
 			}
-			if (	StaticData.GameObjectList[enemyManager.PlayerPosition.x + 1, enemyManager.PlayerPosition.y].GetComponent<ChangeColour>().startCol == 1||
+			if (StaticData.GameObjectList[enemyManager.PlayerPosition.x + 1, enemyManager.PlayerPosition.y].GetComponent<ChangeColour>().startCol == 1 ||
 				 	StaticData.GameObjectList[enemyManager.PlayerPosition.x + 1, enemyManager.PlayerPosition.y].GetComponent<ChangeColour>().startCol == 2) {
-				amountOfIntersections++; 
+				amountOfIntersections++;
 				canMoveRight = true;
 			}
-			if (	StaticData.GameObjectList[enemyManager.PlayerPosition.x - 1, enemyManager.PlayerPosition.y].GetComponent<ChangeColour>().startCol == 1||
+			if (StaticData.GameObjectList[enemyManager.PlayerPosition.x - 1, enemyManager.PlayerPosition.y].GetComponent<ChangeColour>().startCol == 1 ||
 				 	StaticData.GameObjectList[enemyManager.PlayerPosition.x - 1, enemyManager.PlayerPosition.y].GetComponent<ChangeColour>().startCol == 2) {
-				amountOfIntersections++; 
+				amountOfIntersections++;
 				canMoveLeft = true;
 			}
 			if (amountOfIntersections > 1) {
@@ -415,17 +410,17 @@ public class EnemyOneController : MonoBehaviour
 		}
 		if (eom_dir == Vector2Int.down) {
 			ResetDirectionValues();
-			if (	StaticData.GameObjectList[enemyManager.PlayerPosition.x, enemyManager.PlayerPosition.y + 1].GetComponent<ChangeColour>().startCol == 1||
+			if (StaticData.GameObjectList[enemyManager.PlayerPosition.x, enemyManager.PlayerPosition.y + 1].GetComponent<ChangeColour>().startCol == 1 ||
 					StaticData.GameObjectList[enemyManager.PlayerPosition.x, enemyManager.PlayerPosition.y + 1].GetComponent<ChangeColour>().startCol == 2) {
 				amountOfIntersections++;
 				canMoveDown = true;
 			}
-			if (	StaticData.GameObjectList[enemyManager.PlayerPosition.x + 1, enemyManager.PlayerPosition.y].GetComponent<ChangeColour>().startCol == 1 ||
+			if (StaticData.GameObjectList[enemyManager.PlayerPosition.x + 1, enemyManager.PlayerPosition.y].GetComponent<ChangeColour>().startCol == 1 ||
 				 	StaticData.GameObjectList[enemyManager.PlayerPosition.x + 1, enemyManager.PlayerPosition.y].GetComponent<ChangeColour>().startCol == 2) {
 				amountOfIntersections++;
 				canMoveRight = true;
 			}
-			if (	StaticData.GameObjectList[enemyManager.PlayerPosition.x - 1, enemyManager.PlayerPosition.y].GetComponent<ChangeColour>().startCol == 1 ||
+			if (StaticData.GameObjectList[enemyManager.PlayerPosition.x - 1, enemyManager.PlayerPosition.y].GetComponent<ChangeColour>().startCol == 1 ||
 				 	StaticData.GameObjectList[enemyManager.PlayerPosition.x - 1, enemyManager.PlayerPosition.y].GetComponent<ChangeColour>().startCol == 2) {
 				amountOfIntersections++;
 				canMoveLeft = true;
@@ -439,17 +434,17 @@ public class EnemyOneController : MonoBehaviour
 		}
 		if (eom_dir == Vector2Int.left) {
 			ResetDirectionValues();
-			if (	StaticData.GameObjectList[enemyManager.PlayerPosition.x - 1, enemyManager.PlayerPosition.y].GetComponent<ChangeColour>().startCol == 1 ||
+			if (StaticData.GameObjectList[enemyManager.PlayerPosition.x - 1, enemyManager.PlayerPosition.y].GetComponent<ChangeColour>().startCol == 1 ||
 				 	StaticData.GameObjectList[enemyManager.PlayerPosition.x - 1, enemyManager.PlayerPosition.y].GetComponent<ChangeColour>().startCol == 2) {
 				amountOfIntersections++;
 				canMoveLeft = true;
 			}
-			if (	StaticData.GameObjectList[enemyManager.PlayerPosition.x, enemyManager.PlayerPosition.y + 1].GetComponent<ChangeColour>().startCol == 1||
+			if (StaticData.GameObjectList[enemyManager.PlayerPosition.x, enemyManager.PlayerPosition.y + 1].GetComponent<ChangeColour>().startCol == 1 ||
 				 	StaticData.GameObjectList[enemyManager.PlayerPosition.x, enemyManager.PlayerPosition.y + 1].GetComponent<ChangeColour>().startCol == 2) {
 				amountOfIntersections++;
 				canMoveDown = true;
 			}
-			if (	StaticData.GameObjectList[enemyManager.PlayerPosition.x , enemyManager.PlayerPosition.y - 1].GetComponent<ChangeColour>().startCol == 1 ||
+			if (StaticData.GameObjectList[enemyManager.PlayerPosition.x, enemyManager.PlayerPosition.y - 1].GetComponent<ChangeColour>().startCol == 1 ||
 				 	StaticData.GameObjectList[enemyManager.PlayerPosition.x, enemyManager.PlayerPosition.y - 1].GetComponent<ChangeColour>().startCol == 2) {
 				amountOfIntersections++;
 				canMoveUp = true;
@@ -463,17 +458,17 @@ public class EnemyOneController : MonoBehaviour
 		}
 		if (eom_dir == Vector2Int.right) {
 			ResetDirectionValues();
-			if (	StaticData.GameObjectList[enemyManager.PlayerPosition.x + 1, enemyManager.PlayerPosition.y].GetComponent<ChangeColour>().startCol == 1 ||
+			if (StaticData.GameObjectList[enemyManager.PlayerPosition.x + 1, enemyManager.PlayerPosition.y].GetComponent<ChangeColour>().startCol == 1 ||
 				 	StaticData.GameObjectList[enemyManager.PlayerPosition.x + 1, enemyManager.PlayerPosition.y].GetComponent<ChangeColour>().startCol == 2) {
 				amountOfIntersections++;
 				canMoveRight = true;
 			}
-			if (	StaticData.GameObjectList[enemyManager.PlayerPosition.x, enemyManager.PlayerPosition.y + 1].GetComponent<ChangeColour>().startCol == 1 ||
+			if (StaticData.GameObjectList[enemyManager.PlayerPosition.x, enemyManager.PlayerPosition.y + 1].GetComponent<ChangeColour>().startCol == 1 ||
 				 	StaticData.GameObjectList[enemyManager.PlayerPosition.x, enemyManager.PlayerPosition.y + 1].GetComponent<ChangeColour>().startCol == 2) {
 				amountOfIntersections++;
 				canMoveDown = true;
 			}
-			if (	StaticData.GameObjectList[enemyManager.PlayerPosition.x, enemyManager.PlayerPosition.y - 1].GetComponent<ChangeColour>().startCol == 1 ||
+			if (StaticData.GameObjectList[enemyManager.PlayerPosition.x, enemyManager.PlayerPosition.y - 1].GetComponent<ChangeColour>().startCol == 1 ||
 				 	StaticData.GameObjectList[enemyManager.PlayerPosition.x, enemyManager.PlayerPosition.y - 1].GetComponent<ChangeColour>().startCol == 2) {
 				amountOfIntersections++;
 				canMoveUp = true;
@@ -487,22 +482,22 @@ public class EnemyOneController : MonoBehaviour
 		}
 		if (eom_dir == Vector2Int.zero) {
 			ResetDirectionValues();
-			if (	StaticData.GameObjectList[enemyManager.PlayerPosition.x + 1, enemyManager.PlayerPosition.y].GetComponent<ChangeColour>().startCol == 1 ||
+			if (StaticData.GameObjectList[enemyManager.PlayerPosition.x + 1, enemyManager.PlayerPosition.y].GetComponent<ChangeColour>().startCol == 1 ||
 					StaticData.GameObjectList[enemyManager.PlayerPosition.x + 1, enemyManager.PlayerPosition.y].GetComponent<ChangeColour>().startCol == 2) {
 				amountOfIntersections++;
 				canMoveRight = true;
 			}
-			if (	StaticData.GameObjectList[enemyManager.PlayerPosition.x - 1, enemyManager.PlayerPosition.y].GetComponent<ChangeColour>().startCol == 1 ||
+			if (StaticData.GameObjectList[enemyManager.PlayerPosition.x - 1, enemyManager.PlayerPosition.y].GetComponent<ChangeColour>().startCol == 1 ||
 				 	StaticData.GameObjectList[enemyManager.PlayerPosition.x - 1, enemyManager.PlayerPosition.y].GetComponent<ChangeColour>().startCol == 2) {
 				amountOfIntersections++;
 				canMoveLeft = true;
 			}
-			if (	StaticData.GameObjectList[enemyManager.PlayerPosition.x, enemyManager.PlayerPosition.y + 1].GetComponent<ChangeColour>().startCol == 1 ||
+			if (StaticData.GameObjectList[enemyManager.PlayerPosition.x, enemyManager.PlayerPosition.y + 1].GetComponent<ChangeColour>().startCol == 1 ||
 				 	StaticData.GameObjectList[enemyManager.PlayerPosition.x, enemyManager.PlayerPosition.y + 1].GetComponent<ChangeColour>().startCol == 2) {
 				amountOfIntersections++;
 				canMoveDown = true;
 			}
-			if (	StaticData.GameObjectList[enemyManager.PlayerPosition.x, enemyManager.PlayerPosition.y - 1].GetComponent<ChangeColour>().startCol == 1 ||
+			if (StaticData.GameObjectList[enemyManager.PlayerPosition.x, enemyManager.PlayerPosition.y - 1].GetComponent<ChangeColour>().startCol == 1 ||
 				 	StaticData.GameObjectList[enemyManager.PlayerPosition.x, enemyManager.PlayerPosition.y - 1].GetComponent<ChangeColour>().startCol == 2) {
 				amountOfIntersections++;
 				canMoveUp = true;

@@ -20,7 +20,7 @@ public class PlayerManager : MonoBehaviour {
 
 
 
-	readonly int[] dir = new int[2];
+	public int[] dir = new int[2];
 
 	[HideInInspector]
 	public int[] 	pPos;

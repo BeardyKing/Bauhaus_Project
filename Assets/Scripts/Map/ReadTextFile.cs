@@ -16,13 +16,21 @@ public class ReadTextFile : MonoBehaviour
 	string appendText = "";
 	public string[] rawText;
 
+
+
+	public TextMesh boi;
+
 	void Awake()
     {
 		if (Application.isEditor == true) {
-			path = Application.dataPath + @"/map.txt";
+			path = Application.dataPath + "/StreamingAssets/map.txt";
 		} else {
-			path = Application.persistentDataPath + @"/map.txt";
-
+			path = Application.dataPath + "/Resources/Data/StreamingAssets/map.txt";
+		}
+		if (File.Exists(path)) {
+			boi.text = "TRUE   " + path;
+		} else {
+			boi.text = "FALSE   " + path;
 		}
 
 		//StaticData.MapPath = path;
@@ -61,6 +69,14 @@ public class ReadTextFile : MonoBehaviour
 		File.AppendAllText(path, appendText);
 
 	}
+
+	void ReadText2() {
+		FileStream stream = new FileStream(path, FileMode.Open);
+
+	
+
+	}
+
 	void ReadText() {
 		rawText = File.ReadAllLines(path);
 		StaticData.RawMap = rawText;

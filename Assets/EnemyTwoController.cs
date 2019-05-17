@@ -35,7 +35,7 @@ public class EnemyTwoController : MonoBehaviour {
 		enemyManager = GetComponent<EnemyTwoManager>();
 	}
 
-	int frameStartBuffer = 10;
+	int frameStartBuffer = 13;
 
 	void Update() {
 		if (frameStartBuffer > 0) {
@@ -63,16 +63,16 @@ public class EnemyTwoController : MonoBehaviour {
 	float stuckCounter = 0.3f;
 
 	void MovementFallback() {
-		//stuckCounter -= Time.deltaTime;
-		//if (posDirInputWasMade == enemyManager.PlayerPosition ) {
-		//	if (stuckCounter <= 0) {
-		//		RandomMovement();
-		//		Debug.Log("AAA STUCK");
-		//	}
-		//}
-		//else if(posDirInputWasMade != enemyManager.PlayerPosition) {
-		//	stuckCounter = .3f;
-		//}
+		stuckCounter -= Time.deltaTime;
+		if (posDirInputWasMade == enemyManager.PlayerPosition ) {
+			if (stuckCounter <= 0) {
+				RandomMovement();
+				//debug.Log("AAA STUCK");
+			}
+		}
+		else if(posDirInputWasMade != enemyManager.PlayerPosition) {
+			stuckCounter = .7f;
+		}
 
 	}
 
@@ -140,20 +140,20 @@ public class EnemyTwoController : MonoBehaviour {
 					case 0:
 						state = "rnd";
 						state_timer = state_rnd_maxTimer;
-						Debug.Log(state);
+						//debug.Log(state);
 						break;
 					case 1:
 						state = "goto";
 						state_timer = state_goto_maxTimer;
 						randomlySelectedPoint = possibleGoToPositions[(int)Random.Range(0, possibleGoToPositions.Length)];
-						Debug.Log(state);
+						//debug.Log(state);
 
 						break;
 					case 2:
 						state = "capture";
 						state_timer = state_capture_maxTimer;
 						CapturePos = possibleCapturePositions[(int)Random.Range(0, possibleCapturePositions.Length)];
-						Debug.Log(state);
+						//debug.Log(state);
 
 						break;
 					default:
@@ -171,9 +171,9 @@ public class EnemyTwoController : MonoBehaviour {
 		} else if (state == "capture") {
 			if (enemyManager.hasCapturedSquare) {
 				enemyManager.hasCapturedSquare = false;
-				Debug.Log("---------------------");
-				Debug.Log("HAS CAPTURED A SQUARE");
-				Debug.Log("---------------------");
+				//debug.Log("---------------------");
+				//debug.Log("HAS CAPTURED A SQUARE");
+				//debug.Log("---------------------");
 
 				Capture_ChangeState();
 			}
@@ -190,13 +190,13 @@ public class EnemyTwoController : MonoBehaviour {
 			case 0:
 				state = "rnd";
 				state_timer = state_rnd_maxTimer;
-				Debug.Log(state);
+				//debug.Log(state);
 				break;
 			case 1:
 				state = "capture";
 				state_timer = state_capture_maxTimer;
 				CapturePos = possibleCapturePositions[(int)Random.Range(0, possibleCapturePositions.Length)];
-				Debug.Log(state);
+				//debug.Log(state);
 
 				break;
 			default:
@@ -297,7 +297,7 @@ public class EnemyTwoController : MonoBehaviour {
 	bool madeCorrectChoice = false;
 
 	void RandomMovement() {
-		Debug.Log(Time.deltaTime);
+		//debug.Log(Time.deltaTime);
 		if (atIntersection == true) {
 			if (posDirInputWasMade != enemyManager.PlayerPosition) {
 				madeCorrectChoice = false;

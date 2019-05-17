@@ -76,7 +76,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\Prefab\ChangeColour.cs" />
     <Compile Include="Assets\Scripts\StaticData.cs" />
-    <None Include="Assets\map.txt" />
+    <None Include="Assets\StreamingAssets\map.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/iiv/Documents/gitHub/UnityGitClones/Bauhaus_Project/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
