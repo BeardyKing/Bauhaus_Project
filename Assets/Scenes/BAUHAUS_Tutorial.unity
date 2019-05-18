@@ -59677,7 +59677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e39926eadf65ea48973e7195d88aba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 0
+  sceneToLoad: 1
   exitEffectPS_prefab: {fileID: 8653392637326770875, guid: 9b8051d58cb983949927409ac7e62f73,
     type: 3}
   captureEffectPrefab: {fileID: 5283157279203457931, guid: 9615784cfb866d341998ea34900671d5,

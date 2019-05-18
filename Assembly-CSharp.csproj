@@ -60,13 +60,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CameraEndLevelController.cs" />
-    <Compile Include="Assets\ChangeCharactersColour.cs" />
-    <Compile Include="Assets\CountBlockTypes.cs" />
-    <Compile Include="Assets\FollowPlayer.cs" />
-    <Compile Include="Assets\GeneratePixelRepresentation.cs" />
-    <Compile Include="Assets\PlaceOnSelectedPosition.cs" />
-    <Compile Include="Assets\RestartLevel.cs" />
     <Compile Include="Assets\Scripts\Debug &amp; Testing\MoveOnCanvas.cs" />
     <Compile Include="Assets\Scripts\EnemyOne\EnemyOneController.cs" />
     <Compile Include="Assets\Scripts\EnemyOne\EnemyOneManager.cs" />
@@ -79,12 +72,19 @@
     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\Prefab\ChangeColour.cs" />
     <Compile Include="Assets\Scripts\StaticData.cs" />
-    <Compile Include="Assets\Scripts\TUT_CheckerScript.cs" />
-    <Compile Include="Assets\Scripts\TUT_Explode.cs" />
-    <Compile Include="Assets\Scripts\TUT_PlayerController.cs" />
-    <Compile Include="Assets\Scripts\TUT_ShakeBehaviour.cs" />
-    <Compile Include="Assets\Scripts\TUT_SnapToIntPos.cs" />
-    <Compile Include="Assets\Scripts\TUT_TutorialManager.cs" />
+    <Compile Include="Assets\Scripts\Utility\CameraEndLevelController.cs" />
+    <Compile Include="Assets\Scripts\Utility\ChangeCharactersColour.cs" />
+    <Compile Include="Assets\Scripts\Utility\CountBlockTypes.cs" />
+    <Compile Include="Assets\Scripts\Utility\FollowPlayer.cs" />
+    <Compile Include="Assets\Scripts\Utility\PlaceOnSelectedPosition.cs" />
+    <Compile Include="Assets\Scripts\Utility\RestartLevel.cs" />
+    <Compile Include="Assets\Scripts\depricated\GeneratePixelRepresentation.cs" />
+    <Compile Include="Assets\_Tutorial\Tutorial\TUT_CheckerScript.cs" />
+    <Compile Include="Assets\_Tutorial\Tutorial\TUT_Explode.cs" />
+    <Compile Include="Assets\_Tutorial\Tutorial\TUT_PlayerController.cs" />
+    <Compile Include="Assets\_Tutorial\Tutorial\TUT_ShakeBehaviour.cs" />
+    <Compile Include="Assets\_Tutorial\Tutorial\TUT_SnapToIntPos.cs" />
+    <Compile Include="Assets\_Tutorial\Tutorial\TUT_TutorialManager.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
