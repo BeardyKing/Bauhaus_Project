@@ -9,6 +9,7 @@ public class CountBlockTypes : MonoBehaviour{
 	[SerializeField]
 	public int[] colAmount = {0,0,0,0};
 	int counter = 7;
+	public bool rWin = false, bWin = false, yWin = false;
     void Start(){
 
 	}
@@ -39,19 +40,29 @@ public class CountBlockTypes : MonoBehaviour{
 			colText[3].text = colAmount[3].ToString();
 			counter = 25;
 
-			if (colAmount[0] <= 240) { // 250 took 6 minutes 17 of the beta map
+			if (colAmount[0] <= 240 || StaticData.GameRunning == false) { // 250 took 6 minutes 17 of the beta map
 				// GAME OVER
 				if (colAmount[1] > colAmount[2] && colAmount[1] > colAmount[3]) {
 					txt_winner.text = "RED WINS";
 					StaticData.WinningColour = 1;
+					rWin = true;
+					bWin = false;
+					yWin = false;
 				}
-				if (colAmount[2] > colAmount[1] && colAmount[2] > colAmount[3]) {
-					txt_winner.text = "BLUE WINS";
-					StaticData.WinningColour = 2;
-				}
-				if (colAmount[3] > colAmount[1] && colAmount[3] > colAmount[2]) {
+				else if (colAmount[3] > colAmount[1] && colAmount[3] > colAmount[2]) {
 					txt_winner.text = "YELLOW WINS";
 					StaticData.WinningColour = 3;
+					yWin = true;
+					rWin = false;
+					bWin = false;
+				}
+				//if (colAmount[2] > colAmount[1] && colAmount[2] > colAmount[3]) {
+				else { 
+					txt_winner.text = "BLUE WINS";
+					StaticData.WinningColour = 2;
+					bWin = true;
+					rWin = false;
+					yWin = false;
 				}
 				StaticData.GameRunning = false;
 				HidePlayerBody();

@@ -66,6 +66,7 @@
     <Compile Include="Assets\FollowPlayer.cs" />
     <Compile Include="Assets\GeneratePixelRepresentation.cs" />
     <Compile Include="Assets\PlaceOnSelectedPosition.cs" />
+    <Compile Include="Assets\RestartLevel.cs" />
     <Compile Include="Assets\Scripts\Debug &amp; Testing\MoveOnCanvas.cs" />
     <Compile Include="Assets\Scripts\EnemyOne\EnemyOneController.cs" />
     <Compile Include="Assets\Scripts\EnemyOne\EnemyOneManager.cs" />

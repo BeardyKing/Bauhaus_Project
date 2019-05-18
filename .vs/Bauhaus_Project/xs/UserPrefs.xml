@@ -1,14 +1,17 @@
 ﻿<Properties StartupConfiguration="{145D323C-F530-0AD1-C3B6-651AA7BD909B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/CameraEndLevelController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/RestartLevel.cs">
     <Files>
       <File FileName="Assets/Scripts/Prefab/ChangeColour.cs" Line="93" Column="20" />
       <File FileName="Assets/Scripts/EnemyTwo/EnemyTwoManager.cs" Line="295" Column="101" />
       <File FileName="Assets/PlaceOnSelectedPosition.cs" Line="13" Column="23" />
-      <File FileName="Assets/FollowPlayer.cs" Line="15" Column="26" />
+      <File FileName="Assets/FollowPlayer.cs" Line="22" Column="13" />
       <File FileName="Assets/StreamingAssets/map.txt" Line="15" Column="41" />
       <File FileName="Assets/Scripts/EnemyOne/EnemyOneManager.cs" Line="296" Column="101" />
       <File FileName="Assets/Scripts/Player/PlayerManager.cs" Line="363" Column="17" />
-      <File FileName="Assets/CameraEndLevelController.cs" Line="1" Column="1" />
+      <File FileName="Assets/CameraEndLevelController.cs" Line="15" Column="33" />
+      <File FileName="Assets/ChangeCharactersColour.cs" Line="39" Column="4" />
+      <File FileName="Assets/CountBlockTypes.cs" Line="12" Column="55" />
+      <File FileName="Assets/RestartLevel.cs" Line="4" Column="19" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -23,7 +26,7 @@
                 <Node name="Prefab" expanded="True" />
               </Node>
               <Node name="StreamingAssets" expanded="True" />
-              <Node name="CameraEndLevelController.cs" selected="True" />
+              <Node name="RestartLevel.cs" selected="True" />
             </Node>
           </Node>
         </State>
