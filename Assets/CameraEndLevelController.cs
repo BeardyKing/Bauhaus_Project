@@ -12,8 +12,12 @@ public class CameraEndLevelController : MonoBehaviour
 	}
 
     void Update(){
+		if (Input.GetKey(KeyCode.P)) {
+			StaticData.GameRunning = false;
+		}
+
 		if (StaticData.GameRunning == false) {
-			mainCam.transform.position = Vector3.Lerp(mainCam.transform.position, endGamePosNodes, .015f * Time.deltaTime);
+			mainCam.transform.position = Vector3.Lerp(mainCam.transform.position, endGamePosNodes, .03f * Time.deltaTime);
 		}
 	}
 }

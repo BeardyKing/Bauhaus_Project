@@ -17,8 +17,10 @@ public class ChangeColour : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+
+
+	// Update is called once per frame
+	void Update()
     {
 		Buffer++;
 		if (Buffer > 5) {
@@ -37,9 +39,18 @@ public class ChangeColour : MonoBehaviour
 			UpdateCol();
 			if (isRoad) {
 				DoPlayerRoadInteraction(); // REALLY HEAVY SCRIPT
+				CreateGrid();
 			} else {
 				DoCaptureInteraction();
 			}
+		
+		}
+	}
+	bool singlePass = false;
+	void CreateGrid() {
+		if (singlePass == false) {
+			singlePass = true;
+
 		}
 	}
 
@@ -51,7 +62,8 @@ public class ChangeColour : MonoBehaviour
 
 	void MoveWhiteForwards() {
 		if (startCol == 0) {
-			transform.position = new Vector3(transform.position.x, transform.position.y, -.1f);
+			transform.position = new Vector3(transform.position.x, transform.position.y, -.5f);
+			transform.localScale = Vector3.one;
 		} else {
 			isRoad = true;
 		}
@@ -68,9 +80,27 @@ public class ChangeColour : MonoBehaviour
 		if (startCol != 0) {
 			if (sinAmount < 9999999) {
 				sinAmount = sinAmount * Random.Range(1.1f, 1.3f);
-				transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Cos(Mathf.PI * ((transform.position.x + transform.position.y) + Time.time)) / sinAmount);
+				transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Cos(Mathf.PI * ((transform.position.x + transform.position.y) + Time.time)) / sinAmount + (-0.35f));
 			}
 		}
+		if (startCol != lastCol) {
+			doAnim = true;
+			sinAmount = 1;
+		}
+		if (doAnim == true) {
+			if (sinAmount < 9999999) {
+				sinAmount = sinAmount * Random.Range(1.1f, 1.3f);
+				transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Cos(Mathf.PI * ((transform.position.x + transform.position.y) + Time.time)) / sinAmount + (-0.35f));
+			} else {
+				doAnim = false;
+			}
+		}
+
+		lastCol = startCol;
 	}
+	bool doAnim;
+	int lastCol;
 	float sinAmount = 1;
 }
+
+

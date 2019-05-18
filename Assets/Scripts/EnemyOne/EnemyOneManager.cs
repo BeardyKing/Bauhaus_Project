@@ -292,7 +292,9 @@ public class EnemyOneManager : MonoBehaviour {
 
 			centroid = (pos[0] + pos[1] + pos[2] + pos[3]);
 			centroid = centroid / 4;
-			GameObject centroidObj = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+			//GameObject centroidObj = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+			GameObject centroidObj = new GameObject(); // TODO CHANGED FROM SPHERE CHANGE BACK IF THIS BREAKS ANYTHING
+
 			centroidObj.transform.position = new Vector3(centroid.x, -centroid.y, -1);
 			centroidObj.name = "CENTROID FROM ENEMY ONE";
 
@@ -310,7 +312,7 @@ public class EnemyOneManager : MonoBehaviour {
 					pos[i].x = pos[i].x + 1;
 				}
 				colOfObj[i] = StaticData.GameObjectList[(int)pos[i].x, (int)pos[i].y].GetComponent<ChangeColour>().startCol;
-				StaticData.GameObjectList[(int)pos[i].x, (int)pos[i].y].GetComponent<ChangeColour>().startCol = 5;
+				//StaticData.GameObjectList[(int)pos[i].x, (int)pos[i].y].GetComponent<ChangeColour>().startCol = 5; // TODO REMOVE IF EVERYTHING BREAKS
 
 			}
 

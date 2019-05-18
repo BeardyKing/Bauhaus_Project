@@ -12,7 +12,7 @@ public class FollowPlayer : MonoBehaviour {
 	void Start() {
 		pm = FindObjectOfType<PlayerManager>();
 	}
-	float zPos = -24;
+	public float zPos = -24;
 	public float zOffset;
 	int lastSpeed = 1;
 
@@ -50,6 +50,8 @@ public class FollowPlayer : MonoBehaviour {
 				lastSpeed = pm.timeBettweenChange;
 				CameraShakeRotation();
 				CameraSpeedOffset();
+			} else {
+				mainCamera.transform.rotation = Quaternion.Slerp(mainCamera.transform.rotation, Quaternion.Euler(Vector3.zero), 2f * Time.deltaTime);
 			}
 		}
 	}

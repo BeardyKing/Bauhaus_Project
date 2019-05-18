@@ -218,7 +218,7 @@ public class EnemyOneController : MonoBehaviour {
 	int inputsNeededToGrow;
 	public int lengthCap = 50;
 
-	void SetDirAndOnePass(Vector2Int inDir) {
+	void SetDirAndOnePass(Vector2Int inDir) { // TODO SET
 		input = inDir;
 		atIntersection = false;
 		posDirInputWasMade = enemyManager.PlayerPosition;
