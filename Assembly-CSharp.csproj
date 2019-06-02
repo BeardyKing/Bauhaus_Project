@@ -80,6 +80,7 @@
     <Compile Include="Assets\Scripts\Utility\PlaceOnSelectedPosition.cs" />
     <Compile Include="Assets\Scripts\Utility\RestartLevel.cs" />
     <Compile Include="Assets\Scripts\depricated\GeneratePixelRepresentation.cs" />
+    <Compile Include="Assets\ShowName.cs" />
     <Compile Include="Assets\_Tutorial\Tutorial\TUT_CheckerScript.cs" />
     <Compile Include="Assets\_Tutorial\Tutorial\TUT_Explode.cs" />
     <Compile Include="Assets\_Tutorial\Tutorial\TUT_PlayerController.cs" />
