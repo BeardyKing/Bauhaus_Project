@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnsureCaptureBlock1 : MonoBehaviour
 {
-    public int startCounter = 10;
+    public int startCounter = 15;
     public Vector2Int[] topL_botR= new Vector2Int[2];
     public Vector2Int[] corners;
     // Start is called before the first frame update
@@ -17,11 +17,11 @@ public class EnsureCaptureBlock1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K)) {
-            for (int z = 0; z < corners.Length; z++) {
-                StaticData.GameObjectList[corners[z].x, corners[z].y].GetComponent<ChangeColour>().startCol = 4;
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.K)) {
+        //    for (int z = 0; z < corners.Length; z++) {
+        //        StaticData.GameObjectList[corners[z].x, corners[z].y].GetComponent<ChangeColour>().startCol = 4;
+        //    }
+        //}
         if (startCounter > 0) {
             startCounter--;
         }

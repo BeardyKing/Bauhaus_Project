@@ -4,7 +4,6 @@ using UnityEngine;
 using System.IO;
 using System.Text;
 using System;
-
 public class ReadTextFile : MonoBehaviour
 {
 	//[SerializeField]
@@ -18,14 +17,21 @@ public class ReadTextFile : MonoBehaviour
 
 
 
-	public TextMesh boi;
+
+    public TextMesh boi;
 
 	void Awake()
     {
+        //Debug.Log(Application.persistentDataPath);
 		if (Application.isEditor == true) {
 			path = Application.dataPath + "/StreamingAssets/map.txt";
 		} else {
-			path = Application.dataPath + "/Resources/Data/StreamingAssets/map.txt";
+            //if (Application.platform == RuntimePlatform.WindowsEditor) {
+            //    path = Application.dataPath + "/Snake_Data/StreamingAssets/map.txt";
+            //}
+            path = Application.streamingAssetsPath + "/map.txt"; //"/Resources/Data/StreamingAssets/map.txt";
+
+            //path = Application.dataPath + "/Resources/Data/StreamingAssets/map.txt";
 		}
 		if (File.Exists(path)) {
 			boi.text = "TRUE   " + path;
