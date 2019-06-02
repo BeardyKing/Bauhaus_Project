@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -455,9 +456,9 @@ public class PlayerManager : MonoBehaviour {
 			last4Pos.Insert(0, temp);
 		}
 
-		if (last4Pos.Capacity > 4) {
-			last4Pos.RemoveAt(4);
-			last4Pos.Capacity = 4;
+		if (last4Pos.Capacity > 9) {
+			last4Pos.RemoveAt(9);
+			last4Pos.Capacity = 9;
 		}
 		//Debug.Log("added new val");
 	}
