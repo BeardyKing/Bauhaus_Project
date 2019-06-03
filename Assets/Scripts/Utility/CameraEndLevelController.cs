@@ -6,9 +6,9 @@ public class CameraEndLevelController : MonoBehaviour
 {
 	public GameObject mainCam;
 
-	public Vector3 endGamePosNodes;
+	private  Vector3 endGamePosNodes;
     void Start(){
-		//endGamePosNodes = new Vector3(18.5f, -14.5f, -664.7f);
+		endGamePosNodes = new Vector3(19.7f, -13f, -100);
 	}
 
     void Update(){
@@ -17,7 +17,10 @@ public class CameraEndLevelController : MonoBehaviour
 		}
 
 		if (StaticData.GameRunning == false) {
-			mainCam.transform.position = Vector3.Lerp(mainCam.transform.position, endGamePosNodes, .09f * Time.deltaTime);
+            if (mainCam.transform.position.z > -100)
+            {
+                mainCam.transform.position = Vector3.Lerp(mainCam.transform.position, endGamePosNodes, .08f * Time.deltaTime);
+            }
 		}
 	}
 }

@@ -52,7 +52,9 @@ public class PlayerController : MonoBehaviour
 				pm.MaxLength++;
 				Debug.Log("DOING INPUT");
 				canAdd = false;
-			}
+
+
+            }
 		}
 	}
 }

@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +7,7 @@ public class PlayerManager : MonoBehaviour {
 
 	public Vector2Int 	PlayerPosition;
 	List<int[]> 		last4Pos;
-	List<int[]> 		allPositions = new List<int[]>();
+	public List<int[]> 	allPositions = new List<int[]>();   //TODO
 
 
 
@@ -51,7 +50,7 @@ public class PlayerManager : MonoBehaviour {
 	public int 		MaxLength 	= 16;
 	public int 		startMaxLen = 16;
 	readonly int 	lengthClamp = 45;
-	int 			length 		= 1;
+	public int 		length 		= 1;    //TODO
 
 
 	[Header("Speed - Editable")]
@@ -101,7 +100,7 @@ public class PlayerManager : MonoBehaviour {
 					BufferedInput(left, right, up, down);
 				}
 				SetNewPosition();
-				PlayerPosition = new Vector2Int(x, y);
+				PlayerPosition = new Vector2Int(x, y); 
 			}
 		} else {
 			for (int i = 0; i < pPos.Length; i++) {
@@ -398,11 +397,15 @@ public class PlayerManager : MonoBehaviour {
 		int[] temp = new int[2];
 		temp[1] = x;
 		temp[0] = y;
+        
+        FindObjectOfType<SpawnParticles>().PlayerMakesValidTurn(); //TODO
+
 		if (timeBettweenChange > minTimeBetweenChange) {
-			increaseSpeedCounter++;
+            increaseSpeedCounter++;
 			if (increaseSpeedCounter >= increaseSpeedMaxCounter) {
 				increaseSpeedCounter = 0;
 				timeBettweenChange--;
+
 			}
 		}
 		// increase speed
@@ -421,6 +424,7 @@ public class PlayerManager : MonoBehaviour {
 
 		if (increaseLength == true) {
 			increaseLength = false;
+                   
 			if (MaxLength < lengthClamp) {
 				if (sameDir == false) {
 					MaxLength++;
@@ -456,9 +460,9 @@ public class PlayerManager : MonoBehaviour {
 			last4Pos.Insert(0, temp);
 		}
 
-		if (last4Pos.Capacity > 9) {
-			last4Pos.RemoveAt(9);
-			last4Pos.Capacity = 9;
+		if (last4Pos.Capacity > 4) {
+			last4Pos.RemoveAt(4);
+			last4Pos.Capacity = 4;
 		}
 		//Debug.Log("added new val");
 	}
