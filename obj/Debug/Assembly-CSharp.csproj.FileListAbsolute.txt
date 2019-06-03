@@ -605,3 +605,7 @@
 /Users/iiv/Documents/gitHub/UnityGitClones/Bauhaus_Project/Temp/bin/Debug/UnityEngine.AndroidJNIModule.xml
 /Users/iiv/Documents/gitHub/UnityGitClones/Bauhaus_Project/Temp/bin/Debug/UnityEngine.InputLegacyModule.dll.mdb
 /Users/iiv/Documents/gitHub/UnityGitClones/Bauhaus_Project/Temp/bin/Debug/UnityEngine.InputLegacyModule.xml
+I:\Git\Bauhaus_Project\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+I:\Git\Bauhaus_Project\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
+I:\Git\Bauhaus_Project\obj\Debug\Assembly-CSharp.dll
+I:\Git\Bauhaus_Project\obj\Debug\Assembly-CSharp.pdb

@@ -214,7 +214,7 @@ public class EnemyTwoManager : MonoBehaviour {
 			}
 			counter = 0;
 		}
-		SeeListContents();
+		//SeeListContents();
 	}
 
 	#region Collisions

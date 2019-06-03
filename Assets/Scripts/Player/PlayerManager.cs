@@ -9,7 +9,7 @@ public class PlayerManager : MonoBehaviour {
 	List<int[]> 		last4Pos;
 	public List<int[]> 	allPositions = new List<int[]>();   //TODO
 
-
+    public Vector2Int   LastPlayerPosition;
 
 	int 			buffer;
 	readonly int 	maxBuffer 	= 7;
@@ -55,7 +55,7 @@ public class PlayerManager : MonoBehaviour {
 
 	[Header("Speed - Editable")]
 
-	int 			counter;
+	public int 	    counter;
 	int 			increaseSpeedCounter;
 
 	public int 		startSpeed;					// = 6;
@@ -89,8 +89,10 @@ public class PlayerManager : MonoBehaviour {
 		last4Pos = new List<int[]> { Capacity = 4 };
 	}
 
+
 	void Update() {
-		if (StaticData.GameRunning == true) {
+        
+        if (StaticData.GameRunning == true) {
 			PopulateArrays();
 
 			allPositions.Capacity = length;
@@ -100,15 +102,22 @@ public class PlayerManager : MonoBehaviour {
 					BufferedInput(left, right, up, down);
 				}
 				SetNewPosition();
-				PlayerPosition = new Vector2Int(x, y); 
+                //Oliver's Code
+                LastPlayerPosition = PlayerPosition;
+                //Oliver's Code
+                PlayerPosition = new Vector2Int(x, y); 
+
 			}
 		} else {
 			for (int i = 0; i < pPos.Length; i++) {
 			}
 		}
-	}
 
-	void PopulateArrays() {
+    
+
+}
+
+    void PopulateArrays() {
 		if (buffer <= maxBuffer + 2) {
 			buffer++;
 		}
@@ -367,16 +376,16 @@ public class PlayerManager : MonoBehaviour {
 	}
 
 
-
 	void RemoveLastPosition() {
 		if (hasMoved == true) {
 			if (x + dir[0] != x || y + dir[1] != y) {
-				if (length < MaxLength) {
-					Growing();
-				} else {
-					MaxLen();
-				}
-				int tempX = allPositions[length - 1][0];
+                if (length < MaxLength) {
+                    Growing();
+                }
+                else {
+                    MaxLen();
+                }
+                int tempX = allPositions[length - 1][0];
 				int tempY = allPositions[length - 1][1];
 
 				StaticData.GameObjectList[tempY, tempX].GetComponent<ChangeColour>().startCol = 1;
@@ -390,48 +399,48 @@ public class PlayerManager : MonoBehaviour {
 		}
 	}
 
+    void Growing()
+    {
+        length++;
+        int[] temp = new int[2];
+        temp[1] = x;
+        temp[0] = y;
 
-
-	void Growing() {
-		length++;
-		int[] temp = new int[2];
-		temp[1] = x;
-		temp[0] = y;
-        
         FindObjectOfType<SpawnParticles>().PlayerMakesValidTurn(); //TODO
 
-		if (timeBettweenChange > minTimeBetweenChange) {
+        if (timeBettweenChange > minTimeBetweenChange) {
             increaseSpeedCounter++;
-			if (increaseSpeedCounter >= increaseSpeedMaxCounter) {
-				increaseSpeedCounter = 0;
-				timeBettweenChange--;
+            if (increaseSpeedCounter >= increaseSpeedMaxCounter) {
+                increaseSpeedCounter = 0;
+                timeBettweenChange--;
 
-			}
-		}
-		// increase speed
-		if (firstChange == false) {
-			firstChange = true;
-			length--;
-		} else {
-			allPositions.Insert(0, temp);
-		}
-	}
+            }
+        }
+        // increase speed
+        if (firstChange == false) {
+            firstChange = true;
+            length--;
+        }
+        else {
+            allPositions.Insert(0, temp);
+        }
+    }
 
-	void MaxLen() {
+    void MaxLen() {
 		int[] temp = new int[2];
 		temp[1] = x;
 		temp[0] = y;
 
-		if (increaseLength == true) {
-			increaseLength = false;
+		//if (increaseLength == true) {
+		//	increaseLength = false;
                    
-			if (MaxLength < lengthClamp) {
-				if (sameDir == false) {
-					MaxLength++;
-					Growing();
-				}
-			}
-		}
+		//	if (MaxLength < lengthClamp) {
+		//		if (sameDir == false) {
+  //                  MaxLength++;
+  //                  Growing();
+		//		}
+		//	}
+		//}
 
 		allPositions.RemoveAt(MaxLength - 1);
 		allPositions.Insert(0, temp);
@@ -478,6 +487,13 @@ public class PlayerManager : MonoBehaviour {
 		}
 	}
 
+    public bool madeDirChange;
+
+
+   
+
+
+    bool ensureLengthGrowsOnce = false;
 
 	void BufferedInput(bool lf, bool ri, bool upp, bool dn) {
 		if (upp == true) {
@@ -599,23 +615,23 @@ public class PlayerManager : MonoBehaviour {
 
 	void DebugCorners(Vector2[] pos, Vector2 centroid) {
 		// DEBUG SEE CORNERS BEING USED FOR CALCULATION 
-		for (int i = 0; i < 4; i++) {
-			StaticData.GameObjectList[(int)pos[i].x, (int)pos[i].y].GetComponent<ChangeColour>().startCol = 5;
-		}
+		//for (int i = 0; i < 4; i++) {
+		//	StaticData.GameObjectList[(int)pos[i].x, (int)pos[i].y].GetComponent<ChangeColour>().startCol = 5;
+		//}
 	}
 
 	void SeeListContents() {
-		if (firstChange == true) {
-			if (Input.GetButtonDown("Fire1")) {
-				Debug.Log("---- AllPositions ----");
-				for (int i = 0; i < length; i++) {
-					for (int j = 0; j < 1; j++) {
-						Debug.Log("Pos [" + i + "] " + allPositions[i][j] + " : " + allPositions[i][j + 1]);
-					}
-				}
-				List4LastPos();
-			}
-		}
+		//if (firstChange == true) {
+		//	if (Input.GetButtonDown("Fire1")) {
+		//		Debug.Log("---- AllPositions ----");
+		//		for (int i = 0; i < length; i++) {
+		//			for (int j = 0; j < 1; j++) {
+		//				Debug.Log("Pos [" + i + "] " + allPositions[i][j] + " : " + allPositions[i][j + 1]);
+		//			}
+		//		}
+		//		List4LastPos();
+		//	}
+		//}
 	}
 
 	void List4LastPos() {
@@ -631,123 +647,123 @@ public class PlayerManager : MonoBehaviour {
 
 
 	#region Depricated
-	void KeyboardController() {
+	//void KeyboardController() {
 
-		KeyDown();
+	//	KeyDown();
 
-		// 0 = x | 1 = y //
+	//	// 0 = x | 1 = y //
 
-		if (w == true) {
-			dir[0] = 0; dir[1] = 1;
+	//	if (w == true) {
+	//		dir[0] = 0; dir[1] = 1;
 
-		} else if (a == true) {
-			dir[0] = -1; dir[1] = 0;
+	//	} else if (a == true) {
+	//		dir[0] = -1; dir[1] = 0;
 
-		} else if (s == true) {
-			dir[0] = 0; dir[1] = -1;
+	//	} else if (s == true) {
+	//		dir[0] = 0; dir[1] = -1;
 
-		} else if (d == true) {
-			dir[0] = 1; dir[1] = 0;
-		} else {
-			dir[0] = 0; dir[1] = 0;
-		}
-	}
+	//	} else if (d == true) {
+	//		dir[0] = 1; dir[1] = 0;
+	//	} else {
+	//		dir[0] = 0; dir[1] = 0;
+	//	}
+	//}
 
-	void KeyDown() {
-		if (Input.GetKeyDown(KeyCode.W) == true || Input.GetKeyDown(KeyCode.UpArrow) == true) {
+	//void KeyDown() {
+	//	if (Input.GetKeyDown(KeyCode.W) == true || Input.GetKeyDown(KeyCode.UpArrow) == true) {
 
-			increaseLength = true;
-			if (s == true) {
-				sameDir = true;
-			} else {
-				sameDir = false;
-			}
+	//		increaseLength = true;
+	//		if (s == true) {
+	//			sameDir = true;
+	//		} else {
+	//			sameDir = false;
+	//		}
 
-			bool canMakeInput = false;
-			canMakeInput = CheckInputOfPlayerAgainstMap(new Vector2(0, -1));
-			if (canMakeInput) {
-				if (sameDir == false) {
-					AddToListArr(Vector2.zero);
-				}
+	//		bool canMakeInput = false;
+	//		canMakeInput = CheckInputOfPlayerAgainstMap(new Vector2(0, -1));
+	//		if (canMakeInput) {
+	//			if (sameDir == false) {
+	//				AddToListArr(Vector2.zero);
+	//			}
 
-				s = true;
+	//			s = true;
 
-				w = false;
-				a = false;
-				d = false;
-			}
+	//			w = false;
+	//			a = false;
+	//			d = false;
+	//		}
 
 
-		} else if (Input.GetKeyDown(KeyCode.A) == true || Input.GetKeyDown(KeyCode.LeftArrow) == true) {
+	//	} else if (Input.GetKeyDown(KeyCode.A) == true || Input.GetKeyDown(KeyCode.LeftArrow) == true) {
 
-			increaseLength = true;
-			if (a == true) {
-				sameDir = true;
-			} else {
-				sameDir = false;
-			}
+	//		increaseLength = true;
+	//		if (a == true) {
+	//			sameDir = true;
+	//		} else {
+	//			sameDir = false;
+	//		}
 
-			bool canMakeInput = false;
-			canMakeInput = CheckInputOfPlayerAgainstMap(new Vector2(-1, 0));
-			if (canMakeInput) {
-				if (sameDir == false) {
-					AddToListArr(Vector2.zero);
-				}
+	//		bool canMakeInput = false;
+	//		canMakeInput = CheckInputOfPlayerAgainstMap(new Vector2(-1, 0));
+	//		if (canMakeInput) {
+	//			if (sameDir == false) {
+	//				AddToListArr(Vector2.zero);
+	//			}
 
-				a = true;
+	//			a = true;
 
-				s = false;
-				w = false;
-				d = false;
-			}
+	//			s = false;
+	//			w = false;
+	//			d = false;
+	//		}
 
-		} else if (Input.GetKeyDown(KeyCode.S) == true || Input.GetKeyDown(KeyCode.DownArrow) == true) {
+	//	} else if (Input.GetKeyDown(KeyCode.S) == true || Input.GetKeyDown(KeyCode.DownArrow) == true) {
 
-			increaseLength = true;
-			if (w == true) {
-				sameDir = true;
-			} else {
-				sameDir = false;
-			}
+	//		increaseLength = true;
+	//		if (w == true) {
+	//			sameDir = true;
+	//		} else {
+	//			sameDir = false;
+	//		}
 
-			bool canMakeInput = false;
-			canMakeInput = CheckInputOfPlayerAgainstMap(new Vector2(0, 1));
-			if (canMakeInput) {
-				if (sameDir == false) {
-					AddToListArr(Vector2.zero);
-				}
+	//		bool canMakeInput = false;
+	//		canMakeInput = CheckInputOfPlayerAgainstMap(new Vector2(0, 1));
+	//		if (canMakeInput) {
+	//			if (sameDir == false) {
+	//				AddToListArr(Vector2.zero);
+	//			}
 
-				w = true;
+	//			w = true;
 
-				s = false;
-				a = false;
-				d = false;
-			}
+	//			s = false;
+	//			a = false;
+	//			d = false;
+	//		}
 
-		} else if (Input.GetKeyDown(KeyCode.D) == true || Input.GetKeyDown(KeyCode.RightArrow) == true) {
+	//	} else if (Input.GetKeyDown(KeyCode.D) == true || Input.GetKeyDown(KeyCode.RightArrow) == true) {
 
-			increaseLength = true;
-			if (d == true) {
-				sameDir = true;
-			} else {
-				sameDir = false;
-			}
+	//		increaseLength = true;
+	//		if (d == true) {
+	//			sameDir = true;
+	//		} else {
+	//			sameDir = false;
+	//		}
 
-			bool canMakeInput = false;
-			canMakeInput = CheckInputOfPlayerAgainstMap(new Vector2(1, 0));
+	//		bool canMakeInput = false;
+	//		canMakeInput = CheckInputOfPlayerAgainstMap(new Vector2(1, 0));
 
-			if (canMakeInput) {
-				if (sameDir == false) {
-					AddToListArr(Vector2.zero);
-				}
+	//		if (canMakeInput) {
+	//			if (sameDir == false) {
+	//				AddToListArr(Vector2.zero);
+	//			}
 
-				d = true;
+	//			d = true;
 
-				s = false;
-				w = false;
-				a = false;
-			}
-		}
-	}
+	//			s = false;
+	//			w = false;
+	//			a = false;
+	//		}
+	//	}
+	//}
 	#endregion
 }
