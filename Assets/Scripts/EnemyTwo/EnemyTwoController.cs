@@ -56,9 +56,11 @@ public class EnemyTwoController : MonoBehaviour {
 	[SerializeField]
 	float state_timer = 3;
 
-	float state_rnd_maxTimer = 10;
-	float state_goto_maxTimer = 10;
-	float state_capture_maxTimer = 10;
+    [Header("State Timers")]
+    public float state_rnd_maxTimer = 10;
+    public float state_goto_maxTimer = 10;
+    public float state_capture_maxTimer = 10;
+    [Space(30)]
 
 	float stuckCounter = 0.3f;
 

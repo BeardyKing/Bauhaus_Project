@@ -10,6 +10,7 @@ ScriptsOnlyBuild:
     - EnemyTwoController
     - EnemyTwoManager
     - EnsureCaptureBlock1
+    - FdeMe
     - FollowCam
     - FollowPlayer
     - GenerateMap
@@ -42,7 +43,9 @@ ScriptsOnlyBuild:
     - TMPro.TextMeshPro
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
+    - UnityEditor.TestTools.TestRunner.TestListCacheData
     com.unity.multiplayer-hlapi.Runtime.dll:
+    - UnityEngine.Networking.NetworkCallbacks
     - UnityEngine.Networking.NetworkIdentity
   sceneClasses:
     Assets/Scenes/BAUHAUS_Tutorial.unity:
@@ -83,43 +86,45 @@ ScriptsOnlyBuild:
     - Class: 109
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11136}
+      Script: {instanceID: 11138}
     - Class: 114
-      Script: {instanceID: 11140}
-    - Class: 114
-      Script: {instanceID: 11242}
+      Script: {instanceID: 11142}
     - Class: 114
       Script: {instanceID: 11244}
     - Class: 114
-      Script: {instanceID: 11284}
+      Script: {instanceID: 11246}
     - Class: 114
-      Script: {instanceID: 11316}
+      Script: {instanceID: 11286}
     - Class: 114
-      Script: {instanceID: 11348}
+      Script: {instanceID: 11318}
     - Class: 114
-      Script: {instanceID: 11562}
+      Script: {instanceID: 11350}
     - Class: 114
-      Script: {instanceID: 11870}
+      Script: {instanceID: 11568}
     - Class: 114
-      Script: {instanceID: 12236}
+      Script: {instanceID: 11878}
     - Class: 114
-      Script: {instanceID: 12376}
+      Script: {instanceID: 12246}
     - Class: 114
-      Script: {instanceID: 12564}
+      Script: {instanceID: 12386}
     - Class: 114
-      Script: {instanceID: 12580}
+      Script: {instanceID: 12578}
     - Class: 114
-      Script: {instanceID: 12684}
+      Script: {instanceID: 12594}
     - Class: 114
-      Script: {instanceID: 12694}
+      Script: {instanceID: 12698}
     - Class: 114
-      Script: {instanceID: 12866}
+      Script: {instanceID: 12708}
     - Class: 114
-      Script: {instanceID: 13076}
+      Script: {instanceID: 12880}
     - Class: 114
-      Script: {instanceID: 13190}
+      Script: {instanceID: 13090}
     - Class: 114
-      Script: {instanceID: 13198}
+      Script: {instanceID: 13204}
+    - Class: 114
+      Script: {instanceID: 13212}
+    - Class: 114
+      Script: {instanceID: 13216}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 135
@@ -135,6 +140,10 @@ ScriptsOnlyBuild:
     - Class: 212
       Script: {instanceID: 0}
     - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
     Assets/Scenes/SampleScene.unity:
     - Class: 1
@@ -168,56 +177,62 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11140}
+      Script: {instanceID: 11142}
     - Class: 114
-      Script: {instanceID: 11172}
+      Script: {instanceID: 11174}
     - Class: 114
-      Script: {instanceID: 11200}
+      Script: {instanceID: 11202}
     - Class: 114
-      Script: {instanceID: 11206}
+      Script: {instanceID: 11208}
     - Class: 114
-      Script: {instanceID: 11324}
+      Script: {instanceID: 11326}
     - Class: 114
-      Script: {instanceID: 11328}
+      Script: {instanceID: 11330}
     - Class: 114
-      Script: {instanceID: 11376}
+      Script: {instanceID: 11378}
     - Class: 114
-      Script: {instanceID: 11602}
+      Script: {instanceID: 11492}
     - Class: 114
-      Script: {instanceID: 11948}
+      Script: {instanceID: 11608}
     - Class: 114
-      Script: {instanceID: 12026}
+      Script: {instanceID: 11956}
     - Class: 114
-      Script: {instanceID: 12222}
+      Script: {instanceID: 12034}
     - Class: 114
-      Script: {instanceID: 12270}
+      Script: {instanceID: 12232}
     - Class: 114
-      Script: {instanceID: 12426}
+      Script: {instanceID: 12280}
     - Class: 114
-      Script: {instanceID: 12510}
+      Script: {instanceID: 12438}
     - Class: 114
-      Script: {instanceID: 12564}
+      Script: {instanceID: 12522}
     - Class: 114
-      Script: {instanceID: 12714}
+      Script: {instanceID: 12578}
     - Class: 114
-      Script: {instanceID: 12788}
+      Script: {instanceID: 12728}
     - Class: 114
-      Script: {instanceID: 12892}
+      Script: {instanceID: 12802}
     - Class: 114
-      Script: {instanceID: 12988}
+      Script: {instanceID: 12906}
     - Class: 114
-      Script: {instanceID: 13032}
+      Script: {instanceID: 13002}
     - Class: 114
-      Script: {instanceID: 13128}
+      Script: {instanceID: 13046}
     - Class: 114
-      Script: {instanceID: 13164}
+      Script: {instanceID: 13142}
     - Class: 114
-      Script: {instanceID: 13202}
+      Script: {instanceID: 13178}
+    - Class: 114
+      Script: {instanceID: 13216}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
       Script: {instanceID: 0}
     - Class: 157
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
       Script: {instanceID: 0}
     - Class: 212
       Script: {instanceID: 0}
@@ -262,7 +277,7 @@ ScriptsOnlyBuild:
     className: TMP_Dropdown
   - hash:
       serializedVersion: 2
-      Hash: 1d26a99fad5ae1a5de211f765d9967a0
+      Hash: da7b8e15a2a8a11709171b23e0bdb3b3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyOneController
@@ -334,13 +349,13 @@ ScriptsOnlyBuild:
     className: NetworkIdentity
   - hash:
       serializedVersion: 2
-      Hash: ce5b6f2f9d3366364df78789144e0a80
+      Hash: d2b9be353b2da5d4c6a61b4e54a4d1ae
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerManager
   - hash:
       serializedVersion: 2
-      Hash: f5cf8b9a722b36c81dc473ffbd4780fa
+      Hash: ced0f337735e52e11f6d65e6da0ae4f2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
@@ -358,7 +373,7 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   - hash:
       serializedVersion: 2
-      Hash: 686dc5ae0550d5cc850c0d1dcce4c018
+      Hash: 89498a9a4a6296605faa18a2c5f758a4
     assemblyName: Unity.ugui.dll
     namespaceName: UnityEngine.UI
     className: Image
@@ -388,18 +403,6 @@ ScriptsOnlyBuild:
     className: NetworkTransform
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: UnityEngine.Advertisements.dll
-    namespaceName: UnityEngine.Advertisements
-    className: CallbackExecutor
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: UnityEngine.Advertisements.dll
-    namespaceName: UnityEngine.Advertisements.Editor
-    className: Placeholder
-  - hash:
-      serializedVersion: 2
       Hash: 7ab0e790220bdca831fdd886b339039d
     assemblyName: Unity.ugui.dll
     namespaceName: UnityEngine.UI
@@ -416,6 +419,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: SignalAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FdeMe
   - hash:
       serializedVersion: 2
       Hash: 0dbc3be398b4869a5c8d0d8481ee402c
@@ -610,7 +619,7 @@ ScriptsOnlyBuild:
     className: RemoteTestResultSender
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: bce69a9fd948faa3ab9ea4288440ac7a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SpawnParticles
@@ -670,7 +679,7 @@ ScriptsOnlyBuild:
     className: NetworkStartPosition
   - hash:
       serializedVersion: 2
-      Hash: 1d26a99fad5ae1a5de211f765d9967a0
+      Hash: da7b8e15a2a8a11709171b23e0bdb3b3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyTwoController
@@ -700,7 +709,7 @@ ScriptsOnlyBuild:
     className: HorizontalLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 4a0369cd366c126cd420018a4ac01f32
+      Hash: 35a9693c388776aaf487636491a20f11
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_FontAsset
@@ -972,4 +981,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/BAUHAUS_Tutorial.unity
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/IV/Desktop/Build/Snake.exe
+  playerPath: D:/London Calling/LCC-[BA]GamesDesign2020/forAssignments/YR2/DecadesGame/TestBuild/BauHaus.exe

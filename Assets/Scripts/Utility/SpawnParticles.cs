@@ -7,6 +7,8 @@ public class SpawnParticles : MonoBehaviour
     private PlayerManager pm;
     private GameObject triangle;
     private Vector3 endOfTrailPos;
+    public GameObject particlePrefab;
+    private GameObject particle;
 
     void Start()
     {
@@ -19,6 +21,7 @@ public class SpawnParticles : MonoBehaviour
         //testing
         GetEndOfTrailPos();
         Debug();
+        print("length = " + pm.MaxLength);
     }
 
     void GetEndOfTrailPos()
@@ -31,7 +34,12 @@ public class SpawnParticles : MonoBehaviour
     public void PlayerMakesValidTurn()
     {
         //debug
-        triangle.transform.localScale = new Vector3(3, 3, 1);
+        //triangle.transform.localScale = new Vector3(3, 3, 1);
+        if (particle == null)
+        {
+            particle = (Instantiate(particlePrefab, endOfTrailPos, Quaternion.identity));
+            Destroy(particle, 0.4f);
+        }
     }
 
     private void Debug()

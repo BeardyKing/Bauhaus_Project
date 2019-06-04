@@ -12,9 +12,9 @@ public class CameraEndLevelController : MonoBehaviour
 	}
 
     void Update(){
-		if (Input.GetKey(KeyCode.P)) {
-			StaticData.GameRunning = false;
-		}
+		//if (Input.GetKey(KeyCode.P)) {
+		//	StaticData.GameRunning = false;
+		//}
 
 		if (StaticData.GameRunning == false) {
             if (mainCam.transform.position.z > -100)

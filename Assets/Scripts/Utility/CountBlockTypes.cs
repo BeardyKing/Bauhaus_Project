@@ -41,10 +41,10 @@ public class CountBlockTypes : MonoBehaviour{
 			colText[3].text = colAmount[3].ToString();
 			counter = 25;
 
-			if (colAmount[0] <= 240 || StaticData.GameRunning == false) { // 250 took 6 minutes 17 of the beta map
+			if (colAmount[0] <= 300 || StaticData.GameRunning == false) { // 250 took 6 minutes 17 of the beta map
 				// GAME OVER
 				if (colAmount[1] > colAmount[2] && colAmount[1] > colAmount[3]) {
-					txt_winner.text = "\"" + "THE VICTORY OF RED" + "\"";
+					txt_winner.text = "\"" + "THE VICTORY OF BLUE" + "\"";
 					StaticData.WinningColour = 1;
 					rWin = true;
 					bWin = false;
@@ -61,7 +61,7 @@ public class CountBlockTypes : MonoBehaviour{
 				//if (colAmount[2] > colAmount[1] && colAmount[2] > colAmount[3]) {
 				else
                 {
-                    txt_winner.text = "\"" + "THE VICTORY OF BLUE" + "\"";
+                    txt_winner.text = "\"" + "THE VICTORY OF RED" + "\"";
                     StaticData.WinningColour = 2;
 					bWin = true;
 					rWin = false;

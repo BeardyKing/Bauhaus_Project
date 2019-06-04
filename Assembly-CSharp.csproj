@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{145D323C-F530-0AD1-C3B6-651AA7BD909B}</ProjectGuid>
+    <ProjectGuid>{C5D5EAFD-533D-E8C1-DB4C-7A16832DFB39}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -61,6 +61,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\EnsureCaptureBlock1.cs" />
+    <Compile Include="Assets\FdeMe.cs" />
+    <Compile Include="Assets\FollowCam.cs" />
     <Compile Include="Assets\Scripts\Debug &amp; Testing\MoveOnCanvas.cs" />
     <Compile Include="Assets\Scripts\EnemyOne\EnemyOneController.cs" />
     <Compile Include="Assets\Scripts\EnemyOne\EnemyOneManager.cs" />
@@ -79,6 +81,8 @@
     <Compile Include="Assets\Scripts\Utility\FollowPlayer.cs" />
     <Compile Include="Assets\Scripts\Utility\PlaceOnSelectedPosition.cs" />
     <Compile Include="Assets\Scripts\Utility\RestartLevel.cs" />
+    <Compile Include="Assets\Scripts\Utility\ShakeBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Utility\SpawnParticles.cs" />
     <Compile Include="Assets\Scripts\depricated\GeneratePixelRepresentation.cs" />
     <Compile Include="Assets\ShowName.cs" />
     <Compile Include="Assets\_Tutorial\Tutorial\TUT_CheckerScript.cs" />
@@ -107,64 +111,64 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>I:/Git/Bauhaus_Project/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>I:/Git/Bauhaus_Project_PrePush/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Editor">
-      <HintPath>I:/Git/Bauhaus_Project/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
+      <HintPath>I:/Git/Bauhaus_Project_PrePush/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>I:/Git/Bauhaus_Project/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>I:/Git/Bauhaus_Project_PrePush/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>I:/Git/Bauhaus_Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>I:/Git/Bauhaus_Project_PrePush/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ugui">
-      <HintPath>I:/Git/Bauhaus_Project/Library/ScriptAssemblies/Unity.ugui.dll</HintPath>
+      <HintPath>I:/Git/Bauhaus_Project_PrePush/Library/ScriptAssemblies/Unity.ugui.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>I:/Git/Bauhaus_Project/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>I:/Git/Bauhaus_Project_PrePush/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>I:/Git/Bauhaus_Project/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>I:/Git/Bauhaus_Project_PrePush/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-weaver.Editor">
-      <HintPath>I:/Git/Bauhaus_Project/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
+      <HintPath>I:/Git/Bauhaus_Project_PrePush/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
-      <HintPath>I:/Git/Bauhaus_Project/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>I:/Git/Bauhaus_Project_PrePush/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>I:/Git/Bauhaus_Project/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>I:/Git/Bauhaus_Project_PrePush/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>I:/Git/Bauhaus_Project/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>I:/Git/Bauhaus_Project_PrePush/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.SpatialTracking">
-      <HintPath>I:/Git/Bauhaus_Project/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+      <HintPath>I:/Git/Bauhaus_Project_PrePush/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
-      <HintPath>I:/Git/Bauhaus_Project/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+      <HintPath>I:/Git/Bauhaus_Project_PrePush/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
-      <HintPath>I:/Git/Bauhaus_Project/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+      <HintPath>I:/Git/Bauhaus_Project_PrePush/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>I:/Git/Bauhaus_Project/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>I:/Git/Bauhaus_Project_PrePush/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>I:/Git/Bauhaus_Project/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>I:/Git/Bauhaus_Project_PrePush/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>I:/Git/Bauhaus_Project/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>I:/Git/Bauhaus_Project_PrePush/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
-      <HintPath>I:/Git/Bauhaus_Project/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>I:/Git/Bauhaus_Project_PrePush/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ugui.Editor">
-      <HintPath>I:/Git/Bauhaus_Project/Library/ScriptAssemblies/Unity.ugui.Editor.dll</HintPath>
+      <HintPath>I:/Git/Bauhaus_Project_PrePush/Library/ScriptAssemblies/Unity.ugui.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Runtime">
-      <HintPath>I:/Git/Bauhaus_Project/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
+      <HintPath>I:/Git/Bauhaus_Project_PrePush/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0a3/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -341,13 +345,13 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0a3/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>I:/Git/Bauhaus_Project/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>I:/Git/Bauhaus_Project_PrePush/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>I:/Git/Bauhaus_Project/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>I:/Git/Bauhaus_Project_PrePush/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>I:/Git/Bauhaus_Project/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>I:/Git/Bauhaus_Project_PrePush/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0a3/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

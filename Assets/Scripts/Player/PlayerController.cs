@@ -65,8 +65,11 @@ public class PlayerController : MonoBehaviour
             if (pm.length > 2) {
                 if (onePerSquare == false) {
                     onePerSquare = true;
-                    if (posDirInputWasMade != pm.PlayerPosition) {
-                        pm.MaxLength++;
+                    if (pm.MaxLength <= lengthCap) {
+                        if (posDirInputWasMade != pm.PlayerPosition) {
+                            pm.MaxLength++;
+                            pm.MaxLength++;
+                        }
                     }
                     posDirInputWasMade = pm.PlayerPosition;
                 }

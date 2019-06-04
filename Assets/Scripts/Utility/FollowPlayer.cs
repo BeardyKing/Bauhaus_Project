@@ -29,6 +29,7 @@ public class FollowPlayer : MonoBehaviour
     public float xVal = 0;
     public float yVal = 0;
     float zVal = 0;
+    int counter2;
 
     float lerpSpeed = 1;                    //TODO
     Vector2 minPos = new Vector2(8, -26);   //TODO
@@ -44,8 +45,9 @@ public class FollowPlayer : MonoBehaviour
         {
             if (StaticData.GameRunning == true)
             {
+                counter2++;
                 // CHANGES ///////////////////////////////////////////////////////////////////////////////////////////////////
-                zOffset = pm.timeBettweenChange + zPos + crashOffset;
+                zOffset = (pm.timeBettweenChange + zPos + crashOffset);
 
                 endPos.x = Mathf.Lerp(transform.position.x, pm.PlayerPosition.x + posXoffset, lerpSpeed * Time.deltaTime);
                 endPos.y = Mathf.Lerp(transform.position.y, -pm.PlayerPosition.y + posYoffset, lerpSpeed * Time.deltaTime);
@@ -56,7 +58,10 @@ public class FollowPlayer : MonoBehaviour
                 {
                     lerpSpeed = 8;
                     Invoke("ResetLerpSpeed", 1);
-                    FindObjectOfType<ShakeBehaviour>().TriggerShake();
+                    if (counter2 > 100)
+                    {
+                        FindObjectOfType<ShakeBehaviour>().TriggerShake();
+                    }
                 }
                 
 

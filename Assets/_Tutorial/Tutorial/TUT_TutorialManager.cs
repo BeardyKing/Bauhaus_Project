@@ -128,7 +128,15 @@ public class TUT_TutorialManager : MonoBehaviour
         }
         if (step == -8)
         {
-            if (plyrPos == new Vector3(-13, -3, 0))
+            if (Input.GetKeyDown(KeyCode.LeftArrow)||
+                Input.GetKeyDown(KeyCode.RightArrow) ||
+                Input.GetKeyDown(KeyCode.DownArrow) ||
+                Input.GetKeyDown(KeyCode.UpArrow) ||
+                Input.GetKeyDown(KeyCode.W) ||
+                Input.GetKeyDown(KeyCode.A) ||
+                Input.GetKeyDown(KeyCode.S) ||
+                Input.GetKeyDown(KeyCode.D)
+                )
             {
                 if (arrows != null)
                 {
@@ -177,10 +185,11 @@ public class TUT_TutorialManager : MonoBehaviour
         }
         if (step == 8)
         {
+            Destroy(GameObject.Find("TUT_PressP"));
             ExitEffectPart2();
 
             //Tutorial is over
-            Invoke("LoadGame", 5);
+            Invoke("LoadGame", 3);
         }
 
         //print("step = " + step);
