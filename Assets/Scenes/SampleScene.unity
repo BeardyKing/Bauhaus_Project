@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -145,8 +146,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 20723358}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 1
+  m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.3
   m_Range: 10
@@ -218,11 +220,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 583003616}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: fdcd2aedb3b3f446390c1c5ba3fbbecf,
-        type: 3}
-      propertyPath: m_Name
-      value: Emotive Cow
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fdcd2aedb3b3f446390c1c5ba3fbbecf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -298,6 +295,26 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 976725bb89ebf40c49390b4512e8a61d, type: 2}
+    - target: {fileID: -2776006600457469370, guid: fdcd2aedb3b3f446390c1c5ba3fbbecf,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 976725bb89ebf40c49390b4512e8a61d, type: 2}
+    - target: {fileID: -2092386432167015933, guid: fdcd2aedb3b3f446390c1c5ba3fbbecf,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1981.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -2092386432167015933, guid: fdcd2aedb3b3f446390c1c5ba3fbbecf,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2685.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: fdcd2aedb3b3f446390c1c5ba3fbbecf,
+        type: 3}
+      propertyPath: m_Name
+      value: Emotive Cow
+      objectReference: {fileID: 0}
     - target: {fileID: 46817204963591275, guid: fdcd2aedb3b3f446390c1c5ba3fbbecf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -323,21 +340,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.66624993
       objectReference: {fileID: 0}
-    - target: {fileID: -2092386432167015933, guid: fdcd2aedb3b3f446390c1c5ba3fbbecf,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1981.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -2092386432167015933, guid: fdcd2aedb3b3f446390c1c5ba3fbbecf,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 2685.2
-      objectReference: {fileID: 0}
-    - target: {fileID: -2776006600457469370, guid: fdcd2aedb3b3f446390c1c5ba3fbbecf,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 976725bb89ebf40c49390b4512e8a61d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdcd2aedb3b3f446390c1c5ba3fbbecf, type: 3}
 --- !u!1 &76380243 stripped
@@ -420,6 +422,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -488,6 +491,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -631,6 +635,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -895,6 +900,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -979,8 +985,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: '"THE VICTORY OF RED"'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 23c6d21b5a6fc594e8b62d9fad104f70, type: 2}
@@ -1104,6 +1108,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1221,6 +1226,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1319,6 +1325,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1389,6 +1396,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1495,6 +1503,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1593,6 +1602,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1685,6 +1695,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1833,6 +1844,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2130,6 +2142,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2161,11 +2174,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3957509519739943293, guid: 8df92594ddbb9a546bc56286563374d8,
-        type: 3}
-      propertyPath: m_Name
-      value: BlockCapCont
-      objectReference: {fileID: 0}
     - target: {fileID: 3957509519739943292, guid: 8df92594ddbb9a546bc56286563374d8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2220,6 +2228,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3957509519739943293, guid: 8df92594ddbb9a546bc56286563374d8,
+        type: 3}
+      propertyPath: m_Name
+      value: BlockCapCont
+      objectReference: {fileID: 0}
+    - target: {fileID: 3957509519739943293, guid: 8df92594ddbb9a546bc56286563374d8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8df92594ddbb9a546bc56286563374d8, type: 3}
@@ -2291,6 +2309,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2346,6 +2365,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2463,6 +2483,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2739,6 +2760,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2848,8 +2870,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: by Miet Pondrian
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 23c6d21b5a6fc594e8b62d9fad104f70, type: 2}
@@ -2973,6 +2993,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3375,6 +3396,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3420,6 +3442,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 583003616}
     m_Modifications:
+    - target: {fileID: -5418087342421998426, guid: 0c91917bcb46045e4855900a168139e2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: -5418087342421998426, guid: 0c91917bcb46045e4855900a168139e2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -29
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0c91917bcb46045e4855900a168139e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3500,16 +3532,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 976725bb89ebf40c49390b4512e8a61d, type: 2}
-    - target: {fileID: -5418087342421998426, guid: 0c91917bcb46045e4855900a168139e2,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -15
-      objectReference: {fileID: 0}
-    - target: {fileID: -5418087342421998426, guid: 0c91917bcb46045e4855900a168139e2,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -29
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c91917bcb46045e4855900a168139e2, type: 3}
 --- !u!1001 &2077228453
@@ -3589,11 +3611,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.16912667
       objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: e844e2e095a3d46989a301ad93ba25ba,
-        type: 3}
-      propertyPath: m_Name
-      value: UglySnake
-      objectReference: {fileID: 0}
     - target: {fileID: -2882238477870955213, guid: e844e2e095a3d46989a301ad93ba25ba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3603,6 +3620,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 63
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: e844e2e095a3d46989a301ad93ba25ba,
+        type: 3}
+      propertyPath: m_Name
+      value: UglySnake
       objectReference: {fileID: 0}
     - target: {fileID: 8544489365509904941, guid: e844e2e095a3d46989a301ad93ba25ba,
         type: 3}
@@ -3728,11 +3750,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2597722745823368343, guid: 437389e7169d8694ab425eacd3f66f02,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2597722745823368341, guid: 437389e7169d8694ab425eacd3f66f02,
         type: 3}
       propertyPath: m_text
@@ -3752,6 +3769,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.wordCount
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2597722745823368343, guid: 437389e7169d8694ab425eacd3f66f02,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 437389e7169d8694ab425eacd3f66f02, type: 3}

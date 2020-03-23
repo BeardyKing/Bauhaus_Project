@@ -18,10 +18,12 @@ public class SpawnParticles : MonoBehaviour
 
     void Update()
     {
-        //testing
-        GetEndOfTrailPos();
-        Debug();
-        print("length = " + pm.MaxLength);
+        if (pm.PlayerPosition != Vector2Int.zero){
+            //testing
+            GetEndOfTrailPos();
+            Debug();
+            //print("length = " + pm.MaxLength);
+        }
     }
 
     void GetEndOfTrailPos()
